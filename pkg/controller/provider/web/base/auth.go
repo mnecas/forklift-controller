@@ -47,7 +47,12 @@ func (r *Auth) Permit(ctx *gin.Context, p *api.Provider) (status int) {
 		r.cache = make(map[string]time.Time)
 	}
 	r.prune()
-	token := r.token(ctx)
+	var token string
+	if Settings.BearerToken == "" {
+		token = r.token(ctx)
+	} else {
+		token = Settings.BearerToken
+	}
 	if token == "" {
 		status = http.StatusUnauthorized
 		return

@@ -18,6 +18,7 @@ const (
 	AllowedOrigins = "CORS_ALLOWED_ORIGINS"
 	WorkingDir     = "WORKING_DIR"
 	AuthRequired   = "AUTH_REQUIRED"
+	BearerToken    = "BEARER_TOKEN"
 	Host           = "API_HOST"
 	Port           = "API_PORT"
 	TLSEnabled     = "API_TLS_ENABLED"
@@ -42,6 +43,8 @@ type Inventory struct {
 	WorkingDir string
 	// Authorization required.
 	AuthRequired bool
+	// Custom Bearer token.
+	BearerToken string
 	// Host.
 	Host string
 	// Port
